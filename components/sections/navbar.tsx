@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
 import { useScroll } from '@/components/ui/use-scroll';
 import { WhatsappLink } from '@/components/ui/whatsapp-link';
+import { GlassSurface } from '@/components/ui/glass-surface';
 import { navLinks, siteConfig } from '@/lib/constants';
 
 export function Navbar() {
@@ -67,13 +68,22 @@ export function Navbar() {
           ))}
 
           <div className="ml-3">
-            <WhatsappLink
-              id="nav-whatsapp"
-              source="navbar"
-              className="px-5 py-2 rounded-full bg-white text-black text-sm font-semibold hover:bg-gray-200 transition-colors inline-flex items-center"
+            <GlassSurface
+              borderRadius={999}
+              brightness={60}
+              backgroundOpacity={0.12}
+              saturation={1.4}
+              distortionScale={-100}
+              className="rounded-full shadow-[0_0_20px_rgba(255,255,255,0.12)] transition-all hover:scale-[1.03]"
             >
-              Falar no WhatsApp
-            </WhatsappLink>
+              <WhatsappLink
+                id="nav-whatsapp"
+                source="navbar"
+                className="px-5 py-2 rounded-full bg-white text-black text-sm font-semibold hover:bg-gray-200 transition-colors inline-flex items-center"
+              >
+                Falar no WhatsApp
+              </WhatsappLink>
+            </GlassSurface>
           </div>
         </div>
 

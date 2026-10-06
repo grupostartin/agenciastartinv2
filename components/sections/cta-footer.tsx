@@ -7,6 +7,8 @@ import { MaskTitle } from "@/components/motion/mask-reveal";
 import { WhatsappLink } from "@/components/ui/whatsapp-link";
 import { navLinks, siteConfig } from "@/lib/constants";
 
+import { GlassSurface } from "@/components/ui/glass-surface";
+
 /** 7.7 — CTA final + Rodapé (preto). */
 export function CTAFooter() {
   return (
@@ -20,16 +22,25 @@ export function CTAFooter() {
 
         <div className="mt-14">
           <MagneticButton>
-            <WhatsappLink
-              id="footer-cta-whatsapp"
-              source="cta-final"
-              className="group flex items-center gap-4 pl-10 pr-4 py-4 bg-white text-black rounded-full text-lg md:text-xl font-bold transition-transform duration-300 hover:scale-[1.02]"
+            <GlassSurface
+              borderRadius={999}
+              brightness={65}
+              backgroundOpacity={0.15}
+              saturation={1.6}
+              distortionScale={-140}
+              className="rounded-full shadow-[0_0_45px_rgba(255,255,255,0.18)] transition-all hover:scale-[1.03]"
             >
-              Falar no WhatsApp
-              <span className="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-black text-white overflow-hidden">
-                <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:-rotate-45" />
-              </span>
-            </WhatsappLink>
+              <WhatsappLink
+                id="footer-cta-whatsapp"
+                source="cta-final"
+                className="group flex items-center gap-4 pl-10 pr-4 py-4 bg-white text-black rounded-full text-lg md:text-xl font-bold transition-transform duration-300"
+              >
+                Falar no WhatsApp
+                <span className="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-black text-white overflow-hidden">
+                  <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:-rotate-45" />
+                </span>
+              </WhatsappLink>
+            </GlassSurface>
           </MagneticButton>
         </div>
       </div>

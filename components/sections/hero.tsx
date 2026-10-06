@@ -8,6 +8,7 @@ import { EchoText } from "@/components/motion/echo-text";
 import { CountUp } from "@/components/motion/count-up";
 import { MagneticButton } from "@/components/motion/magnetic-button";
 import { WhatsappLink } from "@/components/ui/whatsapp-link";
+import { GlassSurface } from "@/components/ui/glass-surface";
 import { EASE, stats } from "@/lib/constants";
 
 const chips = [
@@ -123,23 +124,41 @@ export function Hero() {
 
             <motion.div {...fadeUp(0.7)} className="mt-8 md:mt-10 flex flex-col sm:flex-row items-center gap-4">
               <MagneticButton>
-                <WhatsappLink
-                  id="hero-cta-landing"
-                  source="hero"
-                  service="Criação de Landing Page"
-                  className="group flex items-center gap-2 px-8 py-4 bg-white text-black rounded-full font-semibold transition-transform duration-300 hover:scale-[1.02] shadow-[0_0_30px_rgba(255,255,255,0.15)]"
+                <GlassSurface
+                  borderRadius={999}
+                  brightness={60}
+                  backgroundOpacity={0.12}
+                  saturation={1.5}
+                  distortionScale={-120}
+                  className="rounded-full shadow-[0_0_35px_rgba(255,255,255,0.15)] transition-all hover:scale-[1.03]"
                 >
-                  Quero minha landing page
-                  <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-                </WhatsappLink>
+                  <WhatsappLink
+                    id="hero-cta-landing"
+                    source="hero"
+                    service="Criação de Landing Page"
+                    className="group flex items-center gap-2 px-8 py-4 bg-white text-black rounded-full font-semibold transition-transform duration-300"
+                  >
+                    Quero minha landing page
+                    <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                  </WhatsappLink>
+                </GlassSurface>
               </MagneticButton>
-              <a
-                id="hero-cta-services"
-                href="#servicos"
-                className="px-8 py-4 border border-white/25 rounded-full font-semibold transition-colors duration-300 hover:bg-white hover:text-black"
+              <GlassSurface
+                borderRadius={999}
+                brightness={40}
+                backgroundOpacity={0.08}
+                saturation={1.3}
+                distortionScale={-100}
+                className="rounded-full border border-white/25 transition-all hover:scale-[1.02]"
               >
-                Ver serviços
-              </a>
+                <a
+                  id="hero-cta-services"
+                  href="#servicos"
+                  className="px-8 py-4 font-semibold transition-colors duration-300 hover:bg-white hover:text-black block rounded-full"
+                >
+                  Ver serviços
+                </a>
+              </GlassSurface>
             </motion.div>
 
             <motion.div {...fadeUp(0.9)} className="mt-12 md:mt-14 flex flex-col items-center">
