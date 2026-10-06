@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1920">
+    <title>Agência Startin — Launch Video</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #000000;
+        color: #ffffff;
+        font-family: "Inter", sans-serif;
+      }
+
+      #root {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: radial-gradient(circle at 50% 45%, #111111 0%, #000000 80%);
+      }
+
+      /* Common Clip Styling */
+      .clip {
+        position: absolute;
+        inset: 0;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+      }
+
+      .scene-content {
+        position: absolute;
+        inset: 0;
+        width: 1080px;
+        height: 1920px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 80px 60px;
+        overflow: hidden;
+      }
+
+      /* Typography */
+      .font-syne {
+        font-family: "Syne", sans-serif;
+      }
+
+      /* STARTIN Outlined Typography */
+      .startin-outline {
+        color: #000000;
+        -webkit-text-stroke: 3.5px #ffffff;
+        paint-order: stroke fill;
+        text-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+      }
+
+      .startin-echo {
+        color: #000000;
+        -webkit-text-stroke: 2px rgba(255, 255, 255, 0.4);
+        paint-order: stroke fill;
+      }
+
+      /* Badge Chips */
+      .pill-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 28px;
+        border-radius: 9999px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(16px);
+        font-size: 22px;
+        font-weight: 600;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: #f4f4f4;
+      }
+
+      /* Voiceover Subtitle Bar */
+      .voice-bar {
+        position: absolute;
+        bottom: 120px;
+        left: 60px;
+        right: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        padding: 20px 32px;
+        background: rgba(10, 10, 10, 0.75);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 24px;
+        backdrop-filter: blur(20px);
+        z-index: 50;
+      }
+
+      .voice-icon {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #ffffff;
+        box-shadow: 0 0 16px #ffffff;
+      }
+
+      .voice-text {
+        font-size: 26px;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+        color: #e4e4e7;
+        text-align: center;
+      }
+
+      /* Cinematic Grain & Vignette Overlay */
+      .vignette-overlay {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 40;
+        background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.85) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      /* Service Card */
+      .service-card {
+        width: 100%;
+        padding: 36px 40px;
+        border-radius: 28px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(15, 15, 15, 0.7);
+        backdrop-filter: blur(24px);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-sshj" id="root" data-composition-id="main" data-start="0" data-duration="18" data-width="1080" data-height="1920">
+      <!-- Audio Elements -->
+      <audio data-hf-id="hf-mvhd" id="bgm" src="assets/music/music.mp3" data-start="0" data-duration="18"></audio>
+      <audio data-hf-id="hf-8a2x" id="sfx-impact" src="assets/sfx/impact/impact.ogg" data-start="3.8" data-duration="1.48"></audio>
+      <audio data-hf-id="hf-ejdv" id="sfx-hit" src="assets/sfx/interface/hit.ogg" data-start="7.8" data-duration="0.13"></audio>
+
+      <!-- SCENE 1: O GANCHO (0.0s - 3.8s) -->
+      <section data-hf-id="hf-esj9" id="scene-1" class="clip" data-start="0" data-duration="3.8" data-track-index="0">
+        <div data-hf-id="hf-9i2j" id="s1-content" class="scene-content" data-layout-allow-overflow="true">
+          <div data-hf-id="hf-w8vo" id="s1-tag" class="pill-badge" style="margin-bottom: 50px;">
+            <span data-hf-id="hf-w4xx" style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #fff;"></span>
+            AGÊNCIA STARTIN
+          </div>
+
+          <h2 data-hf-id="hf-ioib" id="s1-heading-1" class="font-syne" style="font-size: 84px; font-weight: 800; line-height: 1.05; text-align: center; letter-spacing: -0.04em;">
+            NO DIGITAL,
+          </h2>
+          <h2 data-hf-id="hf-i0hs" id="s1-heading-2" class="font-syne" style="font-size: 96px; font-weight: 900; line-height: 1.05; text-align: center; letter-spacing: -0.04em; margin-top: 10px; color: #ffffff;">
+            ATENÇÃO É
+          </h2>
+          <h2 data-hf-id="hf-ypei" id="s1-heading-3" class="font-syne startin-outline" style="font-size: 110px; font-weight: 900; line-height: 1.05; text-align: center; letter-spacing: -0.03em; margin-top: 14px;">
+            PODER.
+          </h2>
+
+          <p data-hf-id="hf-4r3e" id="s1-sub" style="font-size: 30px; color: #a1a1aa; margin-top: 50px; text-align: center; max-width: 800px; font-weight: 400; line-height: 1.4;">
+            Marcas comuns disputam cliques.<br data-hf-id="hf-x5px">
+            <strong data-hf-id="hf-tdop" style="color: #fff;">Marcas líderes constroem autoridade.</strong>
+          </p>
+
+          <!-- Voice Subtitle -->
+          <div data-hf-id="hf-4wr9" id="s1-voice" class="voice-bar">
+            <div data-hf-id="hf-c71s" class="voice-icon"></div>
+            <p data-hf-id="hf-h2uc" class="voice-text">"No digital, atenção é a moeda mais valiosa."</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCENE 2: REVELAÇÃO DA MARCA (3.8s - 7.8s) -->
+      <section data-hf-id="hf-hkvl" id="scene-2" class="clip" data-start="3.8" data-duration="4.0" data-track-index="1">
+        <div data-hf-id="hf-tqm9" id="s2-content" class="scene-content">
+          <!-- 3D Torus sculpture in background -->
+          <div data-hf-id="hf-ciuk" id="s2-sphere" data-layout-allow-overflow="true" style="position: absolute; width: 950px; height: 950px; opacity: 0.28; filter: grayscale(100%); pointer-events: none;">
+            <img data-hf-id="hf-5o25" src="assets/images/hero-shape.jpg" alt="" style="width: 100%; height: 100%; object-fit: contain;">
+          </div>
+
+          <div data-hf-id="hf-duct" id="s2-badge" class="pill-badge" style="margin-bottom: 60px;">
+            BELO HORIZONTE · BRASIL
+          </div>
+
+          <!-- STARTIN Outlined Title + Echo layers -->
+          <div data-hf-id="hf-71o4" style="position: relative; display: flex; flex-direction: column; align-items: center; width: 100%;">
+            <div data-hf-id="hf-t8js" id="s2-echo-3" data-layout-allow-overlap="true" class="font-syne startin-echo" style="font-size: 140px; font-weight: 900; letter-spacing: -0.04em; position: absolute; top: 36px; opacity: 0.12;">
+              STARTIN
+            </div>
+            <div data-hf-id="hf-9dco" id="s2-echo-2" data-layout-allow-overlap="true" class="font-syne startin-echo" style="font-size: 140px; font-weight: 900; letter-spacing: -0.04em; position: absolute; top: 24px; opacity: 0.25;">
+              STARTIN
+            </div>
+            <div data-hf-id="hf-fx7o" id="s2-echo-1" data-layout-allow-overlap="true" class="font-syne startin-echo" style="font-size: 140px; font-weight: 900; letter-spacing: -0.04em; position: absolute; top: 12px; opacity: 0.45;">
+              STARTIN
+            </div>
+            <h1 data-hf-id="hf-ji1g" id="s2-title" data-layout-allow-overlap="true" class="font-syne startin-outline" style="font-size: 140px; font-weight: 900; letter-spacing: -0.04em; position: relative; z-index: 10;">
+              STARTIN
+            </h1>
+          </div>
+
+          <p data-hf-id="hf-8ms4" id="s2-desc" style="font-size: 32px; color: #d4d4d8; margin-top: 70px; text-align: center; max-width: 850px; font-weight: 500; line-height: 1.5;">
+            Marketing estratégico, design brutalista e produção audiovisual para empresas que lideram.
+          </p>
+
+          <!-- Voice Subtitle -->
+          <div data-hf-id="hf-iqcu" id="s2-voice" class="voice-bar">
+            <div data-hf-id="hf-it1k" class="voice-icon"></div>
+            <p data-hf-id="hf-gjg7" class="voice-text">"Conheça a Agência Startin."</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCENE 3: A TRÍADE DE SERVIÇOS (7.8s - 12.8s) -->
+      <section data-hf-id="hf-cx32" id="scene-3" class="clip" data-start="7.8" data-duration="5.0" data-track-index="2">
+        <div data-hf-id="hf-8k08" id="s3-content" class="scene-content">
+          <div data-hf-id="hf-3kef" id="s3-badge" class="pill-badge" style="margin-bottom: 50px;">
+            ESTRUTURA COMPLETA
+          </div>
+
+          <h3 data-hf-id="hf-ykhj" id="s3-headline" class="font-syne" style="font-size: 64px; font-weight: 800; text-align: center; letter-spacing: -0.03em; margin-bottom: 50px;">
+            A TRÍADE QUE ESCALA
+          </h3>
+
+          <!-- Cards Container -->
+          <div data-hf-id="hf-nk0p" style="width: 100%; max-width: 900px;">
+            <!-- Card 1 -->
+            <div data-hf-id="hf-mzme" id="card-1" class="service-card">
+              <div data-hf-id="hf-yeow">
+                <span data-hf-id="hf-uf36" style="font-size: 18px; color: #a1a1aa; letter-spacing: 0.2em; text-transform: uppercase;">01 / Conversão</span>
+                <h4 data-hf-id="hf-c8tp" class="font-syne" style="font-size: 42px; font-weight: 800; margin-top: 6px;">LANDING PAGES</h4>
+              </div>
+              <div data-hf-id="hf-oh0e" class="font-syne" style="font-size: 26px; font-weight: 700; color: #ffffff; background: rgba(255,255,255,0.1); padding: 12px 24px; border-radius: 9999px;">
+                QUE VENDEM
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div data-hf-id="hf-j1id" id="card-2" class="service-card">
+              <div data-hf-id="hf-y7yw">
+                <span data-hf-id="hf-nn2t" style="font-size: 18px; color: #a1a1aa; letter-spacing: 0.2em; text-transform: uppercase;">02 / Crescimento</span>
+                <h4 data-hf-id="hf-mke5" class="font-syne" style="font-size: 42px; font-weight: 800; margin-top: 6px;">SOCIAL MEDIA</h4>
+              </div>
+              <div data-hf-id="hf-cu9e" class="font-syne" style="font-size: 26px; font-weight: 700; color: #ffffff; background: rgba(255,255,255,0.1); padding: 12px 24px; border-radius: 9999px;">
+                QUE CRESCE
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div data-hf-id="hf-i9uk" id="card-3" class="service-card">
+              <div data-hf-id="hf-x11t">
+                <span data-hf-id="hf-xbh6" style="font-size: 18px; color: #a1a1aa; letter-spacing: 0.2em; text-transform: uppercase;">03 / Autoridade</span>
+                <h4 data-hf-id="hf-3wwb" class="font-syne" style="font-size: 42px; font-weight: 800; margin-top: 6px;">PRODUÇÃO DE VÍDEO</h4>
+              </div>
+              <div data-hf-id="hf-wpah" class="font-syne" style="font-size: 26px; font-weight: 700; color: #ffffff; background: rgba(255,255,255,0.1); padding: 12px 24px; border-radius: 9999px;">
+                QUE MARCA
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Proof Pill -->
+          <div data-hf-id="hf-h2lb" id="s3-stat" style="margin-top: 40px; display: flex; align-items: center; gap: 16px;">
+            <span data-hf-id="hf-jrsp" class="font-syne" style="font-size: 48px; font-weight: 900; color: #fff;">25+</span>
+            <span data-hf-id="hf-kx9e" style="font-size: 20px; color: #a1a1aa; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600;">PROJETOS ENTREGUES EM BH</span>
+          </div>
+
+          <!-- Voice Subtitle -->
+          <div data-hf-id="hf-0tp7" id="s3-voice" class="voice-bar">
+            <div data-hf-id="hf-hm4h" class="voice-icon"></div>
+            <p data-hf-id="hf-nnjx" class="voice-text">"Landing pages que vendem. Social media que cresce. Vídeo que marca."</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCENE 4: CLÍMAX & CTA (12.8s - 18.0s) -->
+      <section data-hf-id="hf-y0c8" id="scene-4" class="clip" data-start="12.8" data-duration="5.2" data-track-index="3">
+        <div data-hf-id="hf-2j33" id="s4-content" class="scene-content">
+          <div data-hf-id="hf-c9lx" id="s4-tag" class="pill-badge" style="margin-bottom: 50px;">
+            PRÓXIMO NÍVEL
+          </div>
+
+          <h2 data-hf-id="hf-pzwv" id="s4-heading-1" class="font-syne" style="font-size: 80px; font-weight: 800; line-height: 1.05; text-align: center; letter-spacing: -0.03em;">
+            SUA MARCA
+          </h2>
+          <h2 data-hf-id="hf-mjrr" id="s4-heading-2" class="font-syne startin-outline" style="font-size: 104px; font-weight: 900; line-height: 1.05; text-align: center; letter-spacing: -0.04em; margin-top: 10px;">
+            NA FRENTE.
+          </h2>
+
+          <!-- Call to Action Luxury Button -->
+          <div data-hf-id="hf-ojii" id="s4-cta" style="margin-top: 70px; display: flex; flex-direction: column; align-items: center; gap: 24px;">
+            <div data-hf-id="hf-0v2j" style="padding: 28px 64px; background: #ffffff; color: #000000; border-radius: 9999px; font-size: 34px; font-weight: 800; letter-spacing: -0.02em; font-family: 'Syne', sans-serif; box-shadow: 0 0 50px rgba(255, 255, 255, 0.35);">
+              VAMOS COMEÇAR?
+            </div>
+            <p data-hf-id="hf-uvkb" style="font-size: 26px; color: #a1a1aa; letter-spacing: 0.15em; font-weight: 600;">
+              agenciastartin.com.br
+            </p>
+          </div>
+
+          <div data-hf-id="hf-fgnu" id="s4-logo" style="margin-top: 70px; display: flex; align-items: center; gap: 12px; opacity: 0.6;">
+            <span data-hf-id="hf-vuc1" class="font-syne" style="font-size: 24px; font-weight: 800; letter-spacing: 0.2em;">AGÊNCIA STARTIN © 2026</span>
+          </div>
+
+          <!-- Voice Subtitle -->
+          <div data-hf-id="hf-pl4c" id="s4-voice" class="voice-bar">
+            <div data-hf-id="hf-i0fi" class="voice-icon"></div>
+            <p data-hf-id="hf-yuqe" class="voice-text">"Coloque sua marca na frente. Vamos começar?"</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- GSAP Master Timeline -->
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // ==========================================
+      // SCENE 1 (0.0s - 3.8s): GANCHO CINEMATOGRÁFICO
+      // ==========================================
+      tl.fromTo("#s1-tag", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 0.2);
+      tl.fromTo("#s1-heading-1", { opacity: 0, y: 40, scale: 0.95 }, { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: "power4.out" }, 0.4);
+      tl.fromTo("#s1-heading-2", { opacity: 0, y: 40, scale: 0.95 }, { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: "power4.out" }, 0.7);
+      tl.fromTo("#s1-heading-3", { opacity: 0, scale: 1.25, filter: "blur(12px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 1.0, ease: "power4.out" }, 1.0);
+      tl.fromTo("#s1-sub", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 1.4);
+      tl.fromTo("#s1-voice", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 0.6);
+
+      // Camera push-in and exit on inner content wrapper
+      tl.to("#s1-content", { scale: 1.08, duration: 2.4, ease: "none" }, 1.0);
+      tl.to("#s1-content", { opacity: 0, filter: "blur(8px)", duration: 0.4, ease: "power3.in" }, 3.35);
+
+      // ==========================================
+      // SCENE 2 (3.8s - 7.8s): REVELAÇÃO DA MARCA
+      // ==========================================
+      tl.fromTo("#s2-sphere", { opacity: 0, scale: 0.6, rotation: -20 }, { opacity: 0.28, scale: 1.2, rotation: 10, duration: 3.8, ease: "power2.out" }, 3.8);
+      tl.fromTo("#s2-badge", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 4.0);
+      tl.fromTo("#s2-title", { opacity: 0, scale: 0.8, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.9, ease: "power4.out" }, 4.2);
+
+      // Echo layers stagger
+      tl.fromTo("#s2-echo-1", { opacity: 0, y: 0 }, { opacity: 0.45, y: 14, duration: 0.8, ease: "power3.out" }, 4.4);
+      tl.fromTo("#s2-echo-2", { opacity: 0, y: 0 }, { opacity: 0.25, y: 28, duration: 0.8, ease: "power3.out" }, 4.5);
+      tl.fromTo("#s2-echo-3", { opacity: 0, y: 0 }, { opacity: 0.12, y: 42, duration: 0.8, ease: "power3.out" }, 4.6);
+
+      tl.fromTo("#s2-desc", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 4.8);
+      tl.fromTo("#s2-voice", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 4.2);
+
+      // Exit Scene 2 inner content
+      tl.to("#s2-content", { opacity: 0, scale: 1.1, duration: 0.35, ease: "power3.in" }, 7.4);
+
+      // ==========================================
+      // SCENE 3 (7.8s - 12.8s): TRÍADE DE SERVIÇOS
+      // ==========================================
+      tl.fromTo("#s3-badge", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 8.0);
+      tl.fromTo("#s3-headline", { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 8.2);
+
+      // Cards staggered reveal
+      tl.fromTo("#card-1", { opacity: 0, x: -60, scale: 0.95 }, { opacity: 1, x: 0, scale: 1, duration: 0.7, ease: "power4.out" }, 8.5);
+      tl.fromTo("#card-2", { opacity: 0, x: 60, scale: 0.95 }, { opacity: 1, x: 0, scale: 1, duration: 0.7, ease: "power4.out" }, 9.2);
+      tl.fromTo("#card-3", { opacity: 0, x: -60, scale: 0.95 }, { opacity: 1, x: 0, scale: 1, duration: 0.7, ease: "power4.out" }, 9.9);
+
+      tl.fromTo("#s3-stat", { opacity: 0, scale: 0.9, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.8, ease: "back.out(1.4)" }, 10.6);
+      tl.fromTo("#s3-voice", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 8.4);
+
+      // Exit Scene 3 inner content
+      tl.to("#s3-content", { opacity: 0, scale: 0.92, duration: 0.4, ease: "power3.in" }, 12.35);
+
+      // ==========================================
+      // SCENE 4 (12.8s - 18.0s): CLÍMAX & CTA
+      // ==========================================
+      tl.fromTo("#s4-tag", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 13.0);
+      tl.fromTo("#s4-heading-1", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: "power4.out" }, 13.3);
+      tl.fromTo("#s4-heading-2", { opacity: 0, scale: 1.25, filter: "blur(14px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.9, ease: "power4.out" }, 13.6);
+      tl.fromTo("#s4-cta", { opacity: 0, scale: 0.88, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 0.9, ease: "back.out(1.5)" }, 14.1);
+      tl.fromTo("#s4-logo", { opacity: 0 }, { opacity: 0.6, duration: 0.8, ease: "power2.out" }, 14.6);
+      tl.fromTo("#s4-voice", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 13.4);
+
+      // Subtle ending hold & music decay
+      tl.to("#root", { filter: "brightness(0.96)", duration: 2.0 }, 16.0);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
