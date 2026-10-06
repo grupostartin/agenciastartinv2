@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "motion/react";
-import { ArrowRight, ArrowDown } from "lucide-react";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { EchoText } from "@/components/motion/echo-text";
 import { CountUp } from "@/components/motion/count-up";
 import { MagneticButton } from "@/components/motion/magnetic-button";
@@ -130,14 +130,13 @@ export function Hero() {
                   className="group cursor-pointer"
                 >
                   <WhatsappLink
-                    id="hero-cta-landing"
+                    id="hero-cta-main"
                     source="hero"
-                    service="Criação de Landing Page"
                     className="flex items-center gap-3 px-8 py-4 text-white font-semibold transition-colors"
                   >
-                    <span>Quero minha landing page</span>
-                    <span className="flex items-center justify-center w-8 h-8 rounded-full bg-white/20 text-white backdrop-blur-md transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:translate-x-1">
-                      <ArrowRight className="w-4 h-4" />
+                    <span>Iniciar meu projeto</span>
+                    <span className="flex items-center justify-center w-8 h-8 rounded-full bg-white/20 text-white backdrop-blur-md transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                      <ArrowUpRight className="w-4 h-4" />
                     </span>
                   </WhatsappLink>
                 </GlassSurface>

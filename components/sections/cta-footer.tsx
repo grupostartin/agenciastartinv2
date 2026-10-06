@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { MagneticButton } from "@/components/motion/magnetic-button";
 import { MaskTitle } from "@/components/motion/mask-reveal";
 import { WhatsappLink } from "@/components/ui/whatsapp-link";
@@ -81,8 +81,8 @@ export function CTAFooter() {
                 className="flex items-center gap-4 pl-10 pr-4 py-4 text-white rounded-full text-lg md:text-xl font-bold transition-all"
               >
                 <span>Falar no WhatsApp</span>
-                <span className="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-white text-black overflow-hidden transition-transform duration-300 group-hover:-rotate-45">
-                  <ArrowRight className="w-5 h-5" />
+                <span className="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-white text-black overflow-hidden transition-all duration-300 group-hover:scale-110 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                  <ArrowUpRight className="w-5 h-5" />
                 </span>
               </WhatsappLink>
             </GlassSurface>
