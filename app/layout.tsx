@@ -44,12 +44,21 @@ export const metadata: Metadata = {
     siteName: "Agência Startin",
     locale: "pt_BR",
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "STARTIN — Landing Page, Videomaker e Gestão de Mídias Sociais",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Agência Startin | Marketing Digital em Belo Horizonte",
     description:
       "Landing pages que vendem. Social media que cresce. Vídeo que marca.",
+    images: ["/opengraph-image.jpg"],
   },
   alternates: {
     canonical: "https://agenciastartin.com.br",
