@@ -73,7 +73,7 @@ function ProjectFolderCard({ project, index }: { project: Project; index: number
     >
       <ElectricBorder
         color="#ffffff"
-        speed={0.35}
+        speed={0.10}
         chaos={0.07}
         borderRadius={20}
         className="w-full rounded-2xl"
@@ -109,10 +109,10 @@ function ProjectFolderCard({ project, index }: { project: Project; index: number
 
             {/* Corpo Principal da Pasta (Folder Shell) */}
             <div className="relative overflow-hidden rounded-2xl rounded-tl-none border border-white/15 bg-zinc-950 shadow-2xl transition-all duration-500 group-hover:border-white/40 group-hover:shadow-[0_10px_40px_rgba(255,255,255,0.06)]">
-              
+
               {/* Altura equilibrada para o conteúdo interno */}
               <div className="relative h-[380px] md:h-[420px] w-full overflow-hidden bg-zinc-950">
-                
+
                 {/* DOCUMENTO / FICHA INTERNA QUE DESLIZA PARA FORA AO PASSAR O MOUSE (HOVER: ABRIR A PASTA) */}
                 <div
                   className={cn(
