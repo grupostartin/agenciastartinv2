@@ -125,36 +125,31 @@ export function Hero() {
             <motion.div {...fadeUp(0.7)} className="mt-8 md:mt-10 flex flex-col sm:flex-row items-center gap-4">
               <MagneticButton>
                 <GlassSurface
+                  variant="primary"
                   borderRadius={999}
-                  brightness={60}
-                  backgroundOpacity={0.12}
-                  saturation={1.5}
-                  distortionScale={-120}
-                  className="rounded-full shadow-[0_0_35px_rgba(255,255,255,0.15)] transition-all hover:scale-[1.03]"
+                  className="group cursor-pointer"
                 >
                   <WhatsappLink
                     id="hero-cta-landing"
                     source="hero"
                     service="Criação de Landing Page"
-                    className="group flex items-center gap-2 px-8 py-4 bg-white text-black rounded-full font-semibold transition-transform duration-300"
+                    className="flex items-center gap-3 px-8 py-4 text-white font-semibold transition-colors"
                   >
-                    Quero minha landing page
-                    <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                    <span>Quero minha landing page</span>
+                    <span className="flex items-center justify-center w-8 h-8 rounded-full bg-white/20 text-white backdrop-blur-md transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:translate-x-1">
+                      <ArrowRight className="w-4 h-4" />
+                    </span>
                   </WhatsappLink>
                 </GlassSurface>
               </MagneticButton>
               <GlassSurface
                 borderRadius={999}
-                brightness={40}
-                backgroundOpacity={0.08}
-                saturation={1.3}
-                distortionScale={-100}
-                className="rounded-full border border-white/25 transition-all hover:scale-[1.02]"
+                className="group cursor-pointer"
               >
                 <a
                   id="hero-cta-services"
                   href="#servicos"
-                  className="px-8 py-4 font-semibold transition-colors duration-300 hover:bg-white hover:text-black block rounded-full"
+                  className="px-8 py-4 text-zinc-300 font-semibold transition-colors hover:text-white block"
                 >
                   Ver serviços
                 </a>

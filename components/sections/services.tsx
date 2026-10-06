@@ -93,22 +93,19 @@ export function Services() {
 
                   <div className="mt-12">
                     <GlassSurface
+                      variant={svc.featured ? "primary" : "default"}
                       borderRadius={999}
-                      brightness={svc.featured ? 70 : 45}
-                      backgroundOpacity={0.12}
-                      saturation={1.4}
-                      distortionScale={-110}
-                      className="rounded-full inline-flex transition-all hover:scale-[1.02]"
+                      className="cursor-pointer"
                     >
                       <WhatsappLink
                         id={`cta-${svc.id}`}
                         source={`servico-${svc.id}`}
                         service={svc.whatsappService}
                         className={cn(
-                          "inline-flex items-center gap-3 rounded-full font-semibold transition-transform duration-300",
+                          "inline-flex items-center gap-3 font-semibold transition-colors",
                           svc.featured
-                            ? "px-8 py-5 bg-black text-white text-lg"
-                            : "px-6 py-3 border border-white/25 hover:bg-white hover:text-black transition-colors"
+                            ? "px-8 py-4 text-white text-base md:text-lg"
+                            : "px-6 py-3 text-zinc-200 hover:text-white text-sm md:text-base"
                         )}
                       >
                         {svc.cta}
