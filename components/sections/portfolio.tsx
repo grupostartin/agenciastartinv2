@@ -102,7 +102,7 @@ function ProjectFolderCard({ project, index }: { project: Project; index: number
             </div>
 
             {/* Tag de Categoria na barra superior direita */}
-            <div className="absolute top-1 right-0 flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-zinc-500">
+            <div className="absolute top-1 right-2.5 z-20 flex items-center gap-2 px-2.5 py-1 rounded-full bg-zinc-900/90 border border-white/10 backdrop-blur-sm text-[11px] font-mono uppercase tracking-widest text-zinc-400 group-hover:text-zinc-200 group-hover:border-white/20 transition-all">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400/80" />
               <span>{project.type}</span>
             </div>
@@ -124,17 +124,17 @@ function ProjectFolderCard({ project, index }: { project: Project; index: number
                   {/* Imagem do Projeto */}
                   <Image
                     src={project.src}
-                    alt={`${project.name} — ${project.type}`}
+                    alt={`${project.name} — ${project.type} | Agência Startin`}
                     fill
                     sizes="(max-width: 768px) 100vw, 550px"
                     className={cn(
-                      "object-cover transition-all duration-700 ease-out",
+                      "object-cover object-center transition-all duration-700 ease-out",
                       isHovered ? "scale-105 filter-none" : "grayscale-[40%] contrast-105"
                     )}
                   />
 
                   {/* Gradiente interno na foto */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
 
                   {/* Badge de Destaque / Métrica no topo da ficha */}
                   <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">

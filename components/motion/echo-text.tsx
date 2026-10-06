@@ -16,6 +16,8 @@ interface EchoTextProps {
   /** Anima na montagem (hero) ou ao entrar na viewport (rodapé). */
   trigger?: "mount" | "inView";
   as?: "h1" | "p" | "div";
+  /** Texto semântico adicional para leitores de tela e robôs de busca (SEO) */
+  srText?: string;
 }
 
 /** A2 — Eco do título: cópias empilhadas descendo, opacidade 1 → 0.1, cascata + parallax. */
@@ -27,6 +29,7 @@ export function EchoText({
   gap = 0.08,
   trigger = "mount",
   as = "div",
+  srText,
 }: EchoTextProps) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
@@ -68,6 +71,7 @@ export function EchoText({
         }}
       >
         {text}
+        {srText && <span className="sr-only"> — {srText}</span>}
       </MainTag>
     </motion.div>
   );

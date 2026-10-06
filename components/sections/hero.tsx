@@ -68,7 +68,7 @@ export function Hero() {
           <div className="relative w-[110vw] max-w-[950px] aspect-square opacity-20 md:opacity-30">
             <Image
               src="/images/hero-shape.jpg"
-              alt=""
+              alt="Agência Startin — Marketing Digital e Performance em Belo Horizonte"
               fill
               priority
               sizes="(max-width: 768px) 100vw, 950px"
@@ -107,6 +107,7 @@ export function Hero() {
           <EchoText
             as="h1"
             text="STARTIN"
+            srText="Agência de Marketing Digital em Belo Horizonte | Landing Pages, Social Media e Vídeo"
             copies={4}
             gap={0.06}
             containerClassName="flex flex-col items-center justify-center w-full"

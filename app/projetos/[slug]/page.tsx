@@ -32,23 +32,49 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!project) {
     return {
       title: "Projeto não encontrado | Agência Startin",
+      robots: { index: false, follow: false },
     };
   }
 
+  const pageUrl = `${siteConfig.url}/projetos/${project.slug}`;
+  const title = `${project.name} — Case de ${project.type}`;
+  const description = `${project.summary} Veja como a Agência Startin desenvolveu este case para ${project.client}.`;
+
   return {
-    title: `${project.name} | Portfólio Agência Startin`,
-    description: project.summary,
+    title,
+    description,
+    keywords: [
+      project.name,
+      project.client,
+      project.type,
+      ...project.tags,
+      "case de sucesso",
+      "portfólio marketing digital BH",
+      "criação de sites BH",
+      "Agência Startin",
+    ],
+    alternates: {
+      canonical: pageUrl,
+    },
     openGraph: {
       title: `${project.name} | Case de Sucesso Startin`,
-      description: project.summary,
+      description,
+      url: pageUrl,
+      type: "article",
       images: [
         {
           url: project.src,
           width: 1200,
           height: 630,
-          alt: project.name,
+          alt: `${project.name} — ${project.type} | Agência Startin`,
         },
       ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.name} | Agência Startin`,
+      description,
+      images: [project.src],
     },
   };
 }
@@ -63,8 +89,64 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
   const otherProjects = projects.filter((p) => p.slug !== slug);
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Início",
+        item: siteConfig.url,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Projetos",
+        item: `${siteConfig.url}/#projetos`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: project.name,
+        item: `${siteConfig.url}/projetos/${project.slug}`,
+      },
+    ],
+  };
+
+  const caseStudySchema = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: `${project.name} — ${project.type}`,
+    headline: project.name,
+    description: project.summary,
+    image: `${siteConfig.url}${project.src}`,
+    url: `${siteConfig.url}/projetos/${project.slug}`,
+    author: {
+      "@type": "Organization",
+      name: "Agência Startin",
+      url: siteConfig.url,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Agência Startin",
+      url: siteConfig.url,
+      logo: `${siteConfig.url}/opengraph-image.jpg`,
+    },
+    about: {
+      "@type": "Thing",
+      name: project.type,
+    },
+  };
+
   return (
     <div className="min-h-screen bg-black text-white selection:bg-white selection:text-black">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([breadcrumbSchema, caseStudySchema]),
+        }}
+      />
       {/* Top sticky navigation bar */}
       <header className="sticky top-0 z-40 w-full border-b border-white/10 bg-black/80 backdrop-blur-xl">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
