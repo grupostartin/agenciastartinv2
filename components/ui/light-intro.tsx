@@ -9,12 +9,10 @@ interface LightIntroProps {
 
 export function LightIntro({ children }: LightIntroProps) {
   const [streakClass, setStreakClass] = useState("");
-  const [brandState, setBrandState] = useState("");
-  const [flareActive, setFlareActive] = useState(false);
-  const [shockwaveActive, setShockwaveActive] = useState(false);
   const [overlayFading, setOverlayFading] = useState(false);
   const [siteRevealed, setSiteRevealed] = useState(false);
   const [isCompleted, setIsCompleted] = useState(false);
+  const [showBrand, setShowBrand] = useState(false);
 
   const skipIntro = useCallback(() => {
     setSiteRevealed(true);
@@ -26,41 +24,31 @@ export function LightIntro({ children }: LightIntroProps) {
   }, []);
 
   useEffect(() => {
-    // Respeito à preferência de movimento reduzido
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setSiteRevealed(true);
-      setIsCompleted(true);
-      return;
-    }
-
-    // Trava scroll durante a introdução
+    // Trava scroll da página durante o efeito
     document.body.style.overflow = "hidden";
 
-    // Passo 1: Dispara o feixe de luz cortando o espaço
+    // 1. Inicia o rastro de luz cruzando a tela
     const t1 = setTimeout(() => {
       setStreakClass("fly-in");
-    }, 60);
+    }, 80);
 
-    // Passo 2: O feixe atinge o centro, acende a marca e o flare
+    // 2. Quando o feixe chega no centro, ilumina a marca STARTIN
     const t2 = setTimeout(() => {
-      setFlareActive(true);
-      setBrandState("visible");
-    }, 1250);
+      setShowBrand(true);
+    }, 1200);
 
-    // Passo 3: Explosão de luz e onda de choque abrindo o centro
+    // 3. Explosão de luz cobrindo e abrindo a tela
     const t3 = setTimeout(() => {
       setStreakClass("explode");
-      setShockwaveActive(true);
-      setBrandState("fade");
-    }, 1650);
+    }, 1400);
 
-    // Passo 4: O site emerge do centro enquanto a luz dissipa
+    // 4. Durante a expansão da luz, o site emerge no meio
     const t4 = setTimeout(() => {
-      setSiteRevealed(true);
       setOverlayFading(true);
-    }, 2050);
+      setSiteRevealed(true);
+    }, 1900);
 
-    // Passo 5: Conclusão, destrava rolagem e limpa o DOM
+    // 5. Finaliza e devolve a rolagem
     const t5 = setTimeout(() => {
       setIsCompleted(true);
       document.body.style.overflow = "";
@@ -84,7 +72,7 @@ export function LightIntro({ children }: LightIntroProps) {
 
   return (
     <>
-      {/* Camada de Introdução Cinematográfica */}
+      {/* Camada de Introdução */}
       {!isCompleted && (
         <div
           id="intro-overlay"
@@ -92,38 +80,32 @@ export function LightIntro({ children }: LightIntroProps) {
           onClick={skipIntro}
           aria-hidden="true"
         >
-          {/* O Feixe e a Singularidade de Luz */}
+          {/* O Rastro e Ponto de Luz */}
           <div className={`startin-light-streak ${streakClass}`} />
 
-          {/* Flash Anamórfico Horizontal */}
-          <div className={`startin-flare-line ${flareActive ? "active" : ""}`} />
-
-          {/* Onda de Choque */}
-          <div className={`startin-shockwave ${shockwaveActive ? "expand" : ""}`} />
-
-          {/* Marca no Epicentro */}
-          <div className={`startin-center-brand ${brandState}`}>
+          {/* Marca STARTIN no Epicentro */}
+          <div className={`startin-intro-brand ${showBrand ? "visible" : ""}`}>
             STARTIN
           </div>
 
-          {/* Atalho para pular */}
+          {/* Atalho discreto para pular */}
           <button
             type="button"
-            className="startin-skip-button"
+            className="startin-skip-intro"
             onClick={(e) => {
               e.stopPropagation();
               skipIntro();
             }}
           >
-            Pular intro [Esc]
+            Pular [Esc]
           </button>
         </div>
       )}
 
-      {/* Conteúdo Real do Site que emerge do centro da luz */}
+      {/* Conteúdo Real do Site que emerge no meio da luz */}
       <div
         id="site-content"
-        className={`startin-site-wrapper ${siteRevealed ? "revealed" : ""}`}
+        className={`startin-site-content ${siteRevealed ? "visible" : ""}`}
       >
         {children}
       </div>

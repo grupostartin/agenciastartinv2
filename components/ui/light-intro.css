@@ -1,214 +1,136 @@
-/* Light Intro Animation — Startin Visual Identity */
+/* Intro Overlay de Luz — Identidade Agência Startin */
 
-.startin-intro-overlay {
+#intro-overlay.startin-intro-overlay {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   background-color: #000000;
-  z-index: 99999;
+  z-index: 999999;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   pointer-events: all;
-  transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 1.5s ease-out;
 }
 
-.startin-intro-overlay.fade-out {
+#intro-overlay.startin-intro-overlay.fade-out {
   opacity: 0;
   pointer-events: none;
 }
 
-/* O Feixe de Luz (Laser / Streak) */
+/* A partícula de luz e o rastro luminoso (Streak) */
 .startin-light-streak {
   position: absolute;
   top: 50%;
-  left: -120vw;
-  width: 90vw;
-  height: 3px;
+  left: 50%;
+  width: 85vw;
+  height: 4px;
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.2) 40%,
-    rgba(80, 200, 255, 0.6) 75%,
-    rgba(255, 255, 255, 0.95) 95%,
+    rgba(255, 255, 255, 0.4) 60%,
+    rgba(0, 180, 255, 0.8) 85%,
     #ffffff 100%
   );
   box-shadow:
-    0 0 25px 3px rgba(255, 255, 255, 0.9),
-    0 0 50px 8px rgba(0, 180, 255, 0.7),
-    0 0 90px 15px rgba(255, 255, 255, 0.4);
-  border-radius: 999px;
-  transform: translateY(-50%);
+    0 0 25px rgba(255, 255, 255, 0.9),
+    0 0 50px rgba(0, 160, 255, 0.7),
+    0 0 80px rgba(255, 255, 255, 0.5);
+  border-radius: 100px;
+  transform: translate(calc(-100vw - 50%), -50%);
   pointer-events: none;
-  will-change: transform, left, width, opacity;
+  will-change: transform, width, height, box-shadow;
 }
 
-/* 1. O vôo acelerado cortando a tela até convergir no centro */
+/* 1. O vôo da luz até o centro da tela */
 .startin-light-streak.fly-in {
-  animation: startinFlyToCenter 1.25s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: startinFlyToCenter 1.3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-/* 2. A explosão de luz abrindo o site do centro para fora */
+/* 2. A explosão da luz abrindo e cobrindo a tela */
 .startin-light-streak.explode {
-  animation: startinLightExplode 1.1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation: startinLightExplosion 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes startinFlyToCenter {
   0% {
-    left: -120vw;
-    width: 90vw;
-    height: 3px;
-    opacity: 0;
-  }
-  20% {
-    opacity: 1;
-  }
-  85% {
-    left: 45vw;
-    width: 35vw;
+    transform: translate(calc(-100vw - 50%), -50%);
+    width: 85vw;
     height: 4px;
-    opacity: 1;
+    border-radius: 100px;
+  }
+  75% {
+    width: 40vw;
+    height: 6px;
   }
   100% {
-    left: calc(50vw - 6px);
-    width: 12px;
-    height: 12px;
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
     background: #ffffff;
     box-shadow:
       0 0 60px 25px #ffffff,
-      0 0 120px 50px rgba(0, 200, 255, 0.9),
-      0 0 200px 90px rgba(255, 255, 255, 0.5);
-    opacity: 1;
+      0 0 120px 50px rgba(0, 180, 255, 0.9),
+      0 0 200px 90px rgba(255, 255, 255, 0.6);
   }
 }
 
-@keyframes startinLightExplode {
+@keyframes startinLightExplosion {
   0% {
-    transform: translateY(-50%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
     border-radius: 50%;
     opacity: 1;
     background: #ffffff;
     box-shadow:
-      0 0 70px 30px #ffffff,
-      0 0 140px 60px rgba(0, 200, 255, 0.9);
+      0 0 80px 40px #ffffff,
+      0 0 160px 80px rgba(0, 180, 255, 0.85);
   }
-  30% {
+  40% {
     background: #ffffff;
     box-shadow:
-      0 0 180px 100px #ffffff,
-      0 0 300px 160px rgba(0, 200, 255, 0.85);
+      0 0 160px 100px #ffffff,
+      0 0 320px 180px rgba(0, 180, 255, 0.8);
   }
   100% {
-    transform: translateY(-50%) scale(220);
-    opacity: 0.95;
-    background: radial-gradient(
-      circle,
-      rgba(255, 255, 255, 0.98) 0%,
-      rgba(255, 255, 255, 0.6) 45%,
-      rgba(0, 190, 255, 0.25) 75%,
-      transparent 100%
-    );
+    transform: translate(-50%, -50%) scale(260);
+    opacity: 1;
+    background: #ffffff;
   }
 }
 
-/* Flash de Anamorphic Flare Horizontal */
-.startin-flare-line {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.8) 50%,
-    transparent 100%
-  );
-  box-shadow: 0 0 25px rgba(0, 200, 255, 0.8);
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  opacity: 0;
-  transition: width 0.3s ease-out, opacity 0.3s ease-out;
-}
-
-.startin-flare-line.active {
-  width: 90vw;
-  opacity: 1;
-}
-
-/* Marca d'água STARTIN no epicentro da luz */
-.startin-center-brand {
+/* Marca STARTIN acendendo no momento do impacto */
+.startin-intro-brand {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  pointer-events: none;
   font-family: var(--font-syne), sans-serif;
   font-weight: 800;
-  font-size: clamp(2rem, 6vw, 4.5rem);
+  font-size: clamp(2.5rem, 8vw, 6rem);
   letter-spacing: -0.04em;
   color: #ffffff;
   text-shadow:
-    0 0 20px rgba(255, 255, 255, 0.9),
-    0 0 45px rgba(0, 200, 255, 0.8);
+    0 0 30px rgba(255, 255, 255, 0.95),
+    0 0 60px rgba(0, 180, 255, 0.8);
   opacity: 0;
-  scale: 0.9;
-  transition: opacity 0.35s ease-out, scale 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 2;
-}
-
-.startin-center-brand.visible {
-  opacity: 1;
-  scale: 1;
-}
-
-.startin-center-brand.fade {
-  opacity: 0;
-  scale: 1.15;
-}
-
-/* Onda de Choque Circular (Shockwave) */
-.startin-shockwave {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.85);
-  box-shadow:
-    0 0 30px rgba(0, 200, 255, 0.6),
-    inset 0 0 30px rgba(255, 255, 255, 0.4);
-  transform: translate(-50%, -50%) scale(0);
   pointer-events: none;
-  opacity: 0;
+  z-index: 2;
+  transition: opacity 0.3s ease-out, transform 0.4s ease-out;
 }
 
-.startin-shockwave.expand {
-  animation: shockwaveExpand 1.2s cubic-bezier(0.15, 0.85, 0.35, 1) forwards;
+.startin-intro-brand.visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.05);
 }
 
-@keyframes shockwaveExpand {
-  0% {
-    transform: translate(-50%, -50%) scale(0);
-    opacity: 1;
-  }
-  60% {
-    opacity: 0.8;
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(100);
-    opacity: 0;
-  }
-}
-
-/* Botão discreto para pular caso o usuário queira */
-.startin-skip-button {
+/* Botão discreto para pular */
+.startin-skip-intro {
   position: absolute;
-  bottom: 28px;
+  bottom: 24px;
   right: 28px;
   font-size: 11px;
   letter-spacing: 0.15em;
@@ -221,21 +143,20 @@
   transition: color 0.2s ease;
 }
 
-.startin-skip-button:hover {
-  color: rgba(255, 255, 255, 0.9);
+.startin-skip-intro:hover {
+  color: #ffffff;
 }
 
-/* O Conteúdo do Site que emerge no meio da luz */
-.startin-site-wrapper {
+/* O Conteúdo do Site: emerge no meio da luz conforme ela se abre */
+#site-content.startin-site-content {
   opacity: 0;
-  transform: scale(0.96);
-  transition:
-    opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(0.95);
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+  transform-origin: center center;
   will-change: opacity, transform;
 }
 
-.startin-site-wrapper.revealed {
+#site-content.startin-site-content.visible {
   opacity: 1;
   transform: scale(1);
 }
