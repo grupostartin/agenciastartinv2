@@ -28,29 +28,29 @@ export function Hero() {
     offset: ["start start", "end end"],
   });
 
-  // Imagem de fundo: parallax e zoom para frente
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.45]);
-  const imageOpacity = useTransform(scrollYProgress, [0, 0.85, 1], [1, 0.8, 0.2]);
+  // Imagem de fundo: parallax e zoom suave e gradual
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "10%"]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
+  const imageOpacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 0.7, 0.2]);
 
-  // Conteúdo principal (STARTIN + CTAs): zoom vindo para frente da tela (3D)
-  const contentScale = useTransform(scrollYProgress, [0, 1], [1, 1.25]);
-  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-4%"]);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.7, 1], [1, 0.7, 0]);
+  // Conteúdo principal (STARTIN + CTAs): leve e elegante expansão 3D
+  const contentScale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-2%"]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.75, 1], [1, 0.8, 0]);
 
-  // Chips flutuantes: expandem para fora e dissolvem
-  const chipsScale = useTransform(scrollYProgress, [0, 1], [1, 1.35]);
-  const chipsOpacity = useTransform(scrollYProgress, [0, 0.55], [1, 0]);
+  // Chips flutuantes: movimento suave e dissipação elegante
+  const chipsScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+  const chipsOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
-  // Indicador de scroll: dissolve no início do movimento
-  const indicatorOpacity = useTransform(scrollYProgress, [0, 0.25], [1, 0]);
+  // Indicador de scroll: dissolve suavemente no início do movimento
+  const indicatorOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
   const projects = stats[1];
 
   return (
     <div
       ref={containerRef}
       id="inicio"
-      className="relative h-[130svh] bg-black"
+      className="relative h-[160vh] bg-black"
     >
       <section
         data-theme="dark"

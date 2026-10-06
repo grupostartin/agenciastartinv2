@@ -7,7 +7,6 @@ import {
   ArrowUpRight,
   FolderOpen,
   CheckCircle2,
-  Calendar,
   User,
   Sparkles,
   Layers,
@@ -151,7 +150,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
         </div>
 
         {/* Project Meta Bar */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 rounded-2xl bg-zinc-950/80 border border-zinc-800/80 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-6 rounded-2xl bg-zinc-950/80 border border-zinc-800/80 mb-12">
           <div>
             <span className="text-xs text-zinc-400 uppercase tracking-wider block mb-1">Cliente</span>
             <span className="text-sm font-semibold text-zinc-200 flex items-center gap-1.5">
@@ -164,13 +163,6 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             <span className="text-sm font-semibold text-zinc-200 flex items-center gap-1.5">
               <Layers className="w-3.5 h-3.5 text-zinc-400" />
               {project.type}
-            </span>
-          </div>
-          <div>
-            <span className="text-xs text-zinc-400 uppercase tracking-wider block mb-1">Ano</span>
-            <span className="text-sm font-semibold text-zinc-200 flex items-center gap-1.5">
-              <Calendar className="w-3.5 h-3.5 text-zinc-400" />
-              {project.year}
             </span>
           </div>
           <div>
