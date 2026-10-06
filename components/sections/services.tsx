@@ -92,26 +92,34 @@ export function Services() {
                   </div>
 
                   <div className="mt-12">
-                    <GlassSurface
-                      variant={svc.featured ? "primary" : "default"}
-                      borderRadius={999}
-                      className="cursor-pointer"
-                    >
+                    {svc.featured ? (
                       <WhatsappLink
                         id={`cta-${svc.id}`}
                         source={`servico-${svc.id}`}
                         service={svc.whatsappService}
-                        className={cn(
-                          "inline-flex items-center gap-3 font-semibold transition-colors",
-                          svc.featured
-                            ? "px-8 py-4 text-white text-base md:text-lg"
-                            : "px-6 py-3 text-zinc-200 hover:text-white text-sm md:text-base"
-                        )}
+                        className="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-black text-white hover:bg-zinc-800 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-[1.02] active:scale-[0.98] text-base md:text-lg font-semibold"
                       >
-                        {svc.cta}
-                        <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                        <span>{svc.cta}</span>
+                        <span className="flex items-center justify-center w-8 h-8 rounded-full bg-white text-black transition-transform duration-300 group-hover:translate-x-1">
+                          <ArrowRight className="w-4 h-4" />
+                        </span>
                       </WhatsappLink>
-                    </GlassSurface>
+                    ) : (
+                      <GlassSurface
+                        borderRadius={999}
+                        className="group cursor-pointer"
+                      >
+                        <WhatsappLink
+                          id={`cta-${svc.id}`}
+                          source={`servico-${svc.id}`}
+                          service={svc.whatsappService}
+                          className="inline-flex items-center gap-3 px-6 py-3 text-zinc-200 hover:text-white text-sm md:text-base font-semibold transition-colors"
+                        >
+                          <span>{svc.cta}</span>
+                          <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                        </WhatsappLink>
+                      </GlassSurface>
+                    )}
                   </div>
                 </article>
               </GrowCard>
