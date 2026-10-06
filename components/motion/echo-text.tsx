@@ -4,7 +4,6 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform, type MotionValue } from "motion/react";
 import { cn } from "@/lib/utils";
 import { EASE } from "@/lib/constants";
-import { AnimatedShinyText } from "@/components/ui/animated-shiny-text";
 
 interface EchoTextProps {
   text: string;
@@ -17,8 +16,6 @@ interface EchoTextProps {
   /** Anima na montagem (hero) ou ao entrar na viewport (rodapé). */
   trigger?: "mount" | "inView";
   as?: "h1" | "p" | "div";
-  /** Aplica o efeito Animated Shiny Text de reflexo brilhante contínuo */
-  shiny?: boolean;
 }
 
 /** A2 — Eco do título: cópias empilhadas descendo, opacidade 1 → 0.1, cascata + parallax. */
@@ -30,7 +27,6 @@ export function EchoText({
   gap = 0.08,
   trigger = "mount",
   as = "div",
-  shiny = false,
 }: EchoTextProps) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
@@ -71,13 +67,7 @@ export function EchoText({
           visible: { opacity: 1, y: 0, transition: { duration: 1, ease: EASE } },
         }}
       >
-        {shiny ? (
-          <AnimatedShinyText shimmerWidth="40vw" className="text-white">
-            {text}
-          </AnimatedShinyText>
-        ) : (
-          text
-        )}
+        {text}
       </MainTag>
     </motion.div>
   );

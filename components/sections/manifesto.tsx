@@ -8,7 +8,11 @@ import { EASE, stats } from "@/lib/constants";
 /** 7.3 — Manifesto (branco). */
 export function Manifesto() {
   return (
-    <section id="sobre" data-theme="light" className="py-32 md:py-44 px-6 bg-white text-black">
+    <section
+      id="sobre"
+      data-theme="light"
+      className="relative z-20 py-32 md:py-44 px-6 bg-white text-black rounded-t-[2.5rem] md:rounded-t-[4rem] shadow-[0_-30px_70px_rgba(0,0,0,0.7)]"
+    >
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 12 }}

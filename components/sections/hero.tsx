@@ -4,16 +4,16 @@ import { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "motion/react";
 import { ArrowRight, ArrowDown } from "lucide-react";
-import MaskedHeading from "@/components/ui/masked-heading";
+import { EchoText } from "@/components/motion/echo-text";
 import { CountUp } from "@/components/motion/count-up";
 import { MagneticButton } from "@/components/motion/magnetic-button";
 import { WhatsappLink } from "@/components/ui/whatsapp-link";
 import { EASE, stats } from "@/lib/constants";
 
 const chips = [
-  { label: "Landing Page", className: "top-[18%] left-[6%] md:left-[10%]", duration: 5, offset: -8 },
-  { label: "Social Media", className: "top-[26%] right-[6%] md:right-[12%]", duration: 6, offset: 8 },
-  { label: "Vídeo", className: "bottom-[22%] left-[10%] md:left-[18%]", duration: 4.5, offset: -8 },
+  { label: "Landing Page", className: "top-[16%] left-[4%] md:left-[8%]", duration: 5, offset: -8 },
+  { label: "Social Media", className: "top-[18%] right-[4%] md:right-[8%]", duration: 6, offset: 8 },
+  { label: "Vídeo", className: "bottom-[20%] left-[6%] md:left-[12%]", duration: 4.5, offset: -8 },
 ];
 
 const fadeUp = (delay: number) => ({
@@ -21,143 +21,155 @@ const fadeUp = (delay: number) => ({
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.9, delay, ease: EASE },
 });
-
 export function Hero() {
-  const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
-  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-15%"]);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+
+  // Imagem de fundo: parallax e zoom para frente
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.45]);
+  const imageOpacity = useTransform(scrollYProgress, [0, 0.85, 1], [1, 0.8, 0.2]);
+
+  // Conteúdo principal (STARTIN + CTAs): zoom vindo para frente da tela (3D)
+  const contentScale = useTransform(scrollYProgress, [0, 1], [1, 1.25]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-4%"]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.7, 1], [1, 0.7, 0]);
+
+  // Chips flutuantes: expandem para fora e dissolvem
+  const chipsScale = useTransform(scrollYProgress, [0, 1], [1, 1.35]);
+  const chipsOpacity = useTransform(scrollYProgress, [0, 0.55], [1, 0]);
+
+  // Indicador de scroll: dissolve no início do movimento
+  const indicatorOpacity = useTransform(scrollYProgress, [0, 0.25], [1, 0]);
   const projects = stats[1];
 
   return (
-    <section
-      ref={ref}
+    <div
+      ref={containerRef}
       id="inicio"
-      data-theme="dark"
-      className="relative min-h-[100svh] bg-black text-white flex flex-col items-center justify-center overflow-hidden pt-28 pb-24"
+      className="relative h-[130svh] bg-black"
     >
-      {/* Visual de apoio P&B com parallax */}
-      <motion.div
-        style={{ y: imageY, scale: imageScale }}
-        className="absolute inset-0 flex items-center justify-center pointer-events-none z-0"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.6, ease: EASE }}
+      <section
+        data-theme="dark"
+        className="sticky top-0 h-[100svh] w-full bg-black text-white flex flex-col items-center justify-center overflow-hidden pt-28 pb-20 select-none"
       >
-        <div className="relative w-[110vw] max-w-[950px] aspect-square opacity-[0.07] md:opacity-[0.10]">
-          <Image
-            src="/images/hero-shape.jpg"
-            alt=""
-            fill
-            priority
-            sizes="(max-width: 768px) 100vw, 950px"
-            className="object-contain grayscale"
-          />
-        </div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_10%,#000_70%)]" />
-      </motion.div>
-
-      {/* A10 — Chips flutuantes */}
-      {chips.map((chip, i) => (
+        {/* Visual de apoio P&B com parallax e zoom 3D */}
         <motion.div
-          key={chip.label}
-          className={`absolute ${chip.className} z-10`}
-          {...fadeUp(1 + i * 0.15)}
+          style={{ y: imageY, scale: imageScale, opacity: imageOpacity }}
+          className="absolute inset-0 flex items-center justify-center pointer-events-none z-0"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.6, ease: EASE }}
         >
-          <motion.span
-            animate={{ y: [0, chip.offset, 0] }}
-            transition={{ duration: chip.duration, repeat: Infinity, ease: "easeInOut" }}
-            className="block px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-white/20 bg-black/60 backdrop-blur-md text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase"
-          >
-            {chip.label}
-          </motion.span>
-        </motion.div>
-      ))}
-
-      <motion.div
-        style={{ y: contentY, opacity: contentOpacity }}
-        className="relative z-10 w-full max-w-7xl mx-auto px-6 flex flex-col items-center text-center"
-      >
-        <div className="w-full max-w-6xl mx-auto flex justify-center">
-          <MaskedHeading
-            text="STARTIN"
-            tag="h1"
-            src="/images/white-liquid.jpg"
-            fillScale={1.3}
-            parallax={24}
-            drift={14}
-            brightness={1.45}
-            grayscale={true}
-            reveal="rise"
-            trigger="mount"
-            duration={1.2}
-            stagger={0.08}
-            align="center"
-            weight={800}
-            tracking={-0.04}
-            textScale={0.165}
-            className="font-heading uppercase select-none w-full drop-shadow-[0_0_40px_rgba(255,255,255,0.25)]"
-          />
-        </div>
-
-        <div className="relative z-20 flex flex-col items-center mt-6 md:mt-10">
-          <motion.p
-            {...fadeUp(0.5)}
-            className="max-w-xl text-base md:text-xl text-gray-300 font-medium leading-relaxed drop-shadow-sm"
-          >
-            Landing pages que <span className="text-white font-semibold">vendem</span>. Social media que{" "}
-            <span className="text-white font-semibold">cresce</span>. Vídeo que <span className="text-white font-semibold">marca</span>.
-          </motion.p>
-
-          <motion.div {...fadeUp(0.7)} className="mt-8 md:mt-10 flex flex-col sm:flex-row items-center gap-4">
-            <MagneticButton>
-              <WhatsappLink
-                id="hero-cta-landing"
-                source="hero"
-                service="Criação de Landing Page"
-                className="group flex items-center gap-2 px-8 py-4 bg-white text-black rounded-full font-semibold transition-transform duration-300 hover:scale-[1.02] shadow-[0_0_30px_rgba(255,255,255,0.15)]"
-              >
-                Quero minha landing page
-                <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-              </WhatsappLink>
-            </MagneticButton>
-            <a
-              id="hero-cta-services"
-              href="#servicos"
-              className="px-8 py-4 border border-white/25 rounded-full font-semibold transition-colors duration-300 hover:bg-white hover:text-black"
-            >
-              Ver serviços
-            </a>
-          </motion.div>
-
-          <motion.div {...fadeUp(0.9)} className="mt-12 md:mt-14 flex flex-col items-center">
-            <CountUp
-              to={projects.value}
-              suffix={projects.suffix}
-              className="text-4xl md:text-5xl font-heading font-bold"
+          <div className="relative w-[110vw] max-w-[950px] aspect-square opacity-20 md:opacity-30">
+            <Image
+              src="/images/hero-shape.jpg"
+              alt=""
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 950px"
+              className="object-contain grayscale"
             />
-            <span className="text-xs text-gray-500 mt-2 uppercase tracking-[0.2em]">{projects.label}</span>
-          </motion.div>
-        </div>
-      </motion.div>
+          </div>
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_10%,#000_75%)]" />
+        </motion.div>
 
-      {/* Indicador de scroll */}
-      <motion.a
-        href="#sobre"
-        id="hero-scroll-indicator"
-        aria-label="Rolar para a próxima seção"
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-[10px] tracking-[0.3em] uppercase text-gray-500"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.4, duration: 0.8 }}
-      >
-        <motion.span animate={{ y: [0, 6, 0] }} transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}>
-          <ArrowDown className="w-4 h-4" />
-        </motion.span>
-        Scroll
-      </motion.a>
-    </section>
+        {/* A10 — Chips flutuantes */}
+        <motion.div
+          style={{ scale: chipsScale, opacity: chipsOpacity }}
+          className="absolute inset-0 pointer-events-none z-10"
+        >
+          {chips.map((chip, i) => (
+            <motion.div
+              key={chip.label}
+              className={`absolute ${chip.className} pointer-events-none select-none`}
+              {...fadeUp(1 + i * 0.15)}
+            >
+              <motion.span
+                animate={{ y: [0, chip.offset, 0] }}
+                transition={{ duration: chip.duration, repeat: Infinity, ease: "easeInOut" }}
+                className="block px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-white/20 bg-black/60 backdrop-blur-md text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase"
+              >
+                {chip.label}
+              </motion.span>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <motion.div
+          style={{ y: contentY, scale: contentScale, opacity: contentOpacity }}
+          className="relative z-10 w-full max-w-7xl mx-auto px-6 flex flex-col items-center text-center origin-center"
+        >
+          <EchoText
+            as="h1"
+            text="STARTIN"
+            copies={4}
+            gap={0.06}
+            containerClassName="flex flex-col items-center justify-center w-full"
+            className="text-[clamp(2.5rem,7vw,6.5rem)] font-heading font-extrabold leading-[0.9] tracking-[-0.03em] text-stroke-white uppercase text-center"
+          />
+
+          <div className="relative z-20 flex flex-col items-center mt-6 md:mt-10">
+            <motion.p
+              {...fadeUp(0.5)}
+              className="max-w-xl text-base md:text-xl text-gray-400 font-medium leading-relaxed drop-shadow-sm"
+            >
+              Landing pages que <span className="text-white font-semibold">vendem</span>. Social media que{" "}
+              <span className="text-white font-semibold">cresce</span>. Vídeo que <span className="text-white font-semibold">marca</span>.
+            </motion.p>
+
+            <motion.div {...fadeUp(0.7)} className="mt-8 md:mt-10 flex flex-col sm:flex-row items-center gap-4">
+              <MagneticButton>
+                <WhatsappLink
+                  id="hero-cta-landing"
+                  source="hero"
+                  service="Criação de Landing Page"
+                  className="group flex items-center gap-2 px-8 py-4 bg-white text-black rounded-full font-semibold transition-transform duration-300 hover:scale-[1.02] shadow-[0_0_30px_rgba(255,255,255,0.15)]"
+                >
+                  Quero minha landing page
+                  <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </WhatsappLink>
+              </MagneticButton>
+              <a
+                id="hero-cta-services"
+                href="#servicos"
+                className="px-8 py-4 border border-white/25 rounded-full font-semibold transition-colors duration-300 hover:bg-white hover:text-black"
+              >
+                Ver serviços
+              </a>
+            </motion.div>
+
+            <motion.div {...fadeUp(0.9)} className="mt-12 md:mt-14 flex flex-col items-center">
+              <CountUp
+                to={projects.value}
+                suffix={projects.suffix}
+                className="text-4xl md:text-5xl font-heading font-bold"
+              />
+              <span className="text-xs text-gray-500 mt-2 uppercase tracking-[0.2em]">{projects.label}</span>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Indicador de scroll */}
+        <motion.a
+          href="#sobre"
+          id="hero-scroll-indicator"
+          aria-label="Rolar para a próxima seção"
+          style={{ opacity: indicatorOpacity }}
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-[10px] tracking-[0.3em] uppercase text-gray-500"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.4, duration: 0.8 }}
+        >
+          <motion.span animate={{ y: [0, 6, 0] }} transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}>
+            <ArrowDown className="w-4 h-4" />
+          </motion.span>
+          Scroll
+        </motion.a>
+      </section>
+    </div>
   );
 }
