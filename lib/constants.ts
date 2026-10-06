@@ -20,6 +20,7 @@ export const navLinks = [
   { name: "Serviços", href: "#servicos" },
   { name: "Projetos", href: "#projetos" },
   { name: "Processo", href: "#processo" },
+  { name: "FAQ", href: "#faq" },
   { name: "Contato", href: "#contato" },
 ];
 

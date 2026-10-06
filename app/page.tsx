@@ -4,6 +4,7 @@ import { Manifesto } from "@/components/sections/manifesto";
 import { Services } from "@/components/sections/services";
 import { Process } from "@/components/sections/process";
 import { Portfolio } from "@/components/sections/portfolio";
+import { FAQ } from "@/components/sections/faq";
 import { CTAFooter } from "@/components/sections/cta-footer";
 import { FloatingWhatsapp } from "@/components/sections/floating-whatsapp";
 import { ScrollProgress } from "@/components/sections/scroll-progress";
@@ -19,6 +20,7 @@ export default function Home() {
         <Services />
         <Process />
         <Portfolio />
+        <FAQ />
       </main>
       <CTAFooter />
       <FloatingWhatsapp />
