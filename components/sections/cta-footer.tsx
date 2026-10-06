@@ -1,29 +1,12 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { MagneticButton } from "@/components/motion/magnetic-button";
 import { MaskTitle } from "@/components/motion/mask-reveal";
 import { WhatsappLink } from "@/components/ui/whatsapp-link";
 import { navLinks, siteConfig } from "@/lib/constants";
 
 import { GlassSurface } from "@/components/ui/glass-surface";
-
-function HexagonIcon({ className = "w-7 h-7" }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-      aria-hidden="true"
-    >
-      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-    </svg>
-  );
-}
 
 function InstagramIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
@@ -81,8 +64,8 @@ export function CTAFooter() {
                 className="flex items-center gap-4 pl-10 pr-4 py-4 text-white rounded-full text-lg md:text-xl font-bold transition-all"
               >
                 <span>Falar no WhatsApp</span>
-                <span className="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-white text-black overflow-hidden transition-all duration-300 group-hover:scale-110 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                  <ArrowUpRight className="w-5 h-5" />
+                <span className="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-white text-black overflow-hidden transition-transform duration-300 group-hover:-rotate-45">
+                  <ArrowRight className="w-5 h-5" />
                 </span>
               </WhatsappLink>
             </GlassSurface>
@@ -94,8 +77,8 @@ export function CTAFooter() {
       <div className="max-w-7xl mx-auto px-6 pb-12 md:pb-16">
         {/* Topo do rodapé: Brand + Redes Sociais */}
         <div className="flex items-center justify-between py-6">
-          <div className="flex items-center gap-3">
-            <HexagonIcon className="w-7 h-7 text-white stroke-[2.2]" />
+          <div className="flex items-center gap-2.5">
+            <ArrowUpRight className="w-6 h-6 md:w-7 md:h-7 text-white stroke-[2.5]" />
             <span className="font-heading font-bold text-lg md:text-xl text-white tracking-tight">
               {siteConfig.name}
             </span>
