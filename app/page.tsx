@@ -1,4 +1,3 @@
-import { LightIntro } from "@/components/ui/light-intro";
 import { Navbar } from "@/components/sections/navbar";
 import { Hero } from "@/components/sections/hero";
 import { Manifesto } from "@/components/sections/manifesto";
@@ -11,7 +10,7 @@ import { ScrollProgress } from "@/components/sections/scroll-progress";
 
 export default function Home() {
   return (
-    <LightIntro>
+    <>
       <ScrollProgress />
       <Navbar />
       <main className="flex flex-col bg-black">
@@ -23,6 +22,6 @@ export default function Home() {
       </main>
       <CTAFooter />
       <FloatingWhatsapp />
-    </LightIntro>
+    </>
   );
 }
