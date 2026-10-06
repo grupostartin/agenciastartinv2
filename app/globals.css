@@ -125,3 +125,17 @@ html.lenis body {
     scroll-behavior: auto !important;
   }
 }
+
+/* Animated Shiny Text (21st.dev / Magic UI) */
+@keyframes shiny-text {
+  0%, 90%, 100% {
+    background-position: calc(-100% - var(--shiny-width, 250px)) 0;
+  }
+  30%, 60% {
+    background-position: calc(100% + var(--shiny-width, 250px)) 0;
+  }
+}
+
+.animate-shiny-text {
+  animation: shiny-text 6s cubic-bezier(0.6, 0.6, 0, 1) infinite;
+}

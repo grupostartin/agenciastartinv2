@@ -4,7 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "motion/react";
 import { ArrowRight, ArrowDown } from "lucide-react";
-import { EchoText } from "@/components/motion/echo-text";
+import MaskedHeading from "@/components/ui/masked-heading";
 import { CountUp } from "@/components/motion/count-up";
 import { MagneticButton } from "@/components/motion/magnetic-button";
 import { WhatsappLink } from "@/components/ui/whatsapp-link";
@@ -46,7 +46,7 @@ export function Hero() {
         animate={{ opacity: 1 }}
         transition={{ duration: 1.6, ease: EASE }}
       >
-        <div className="relative w-[110vw] max-w-[950px] aspect-square opacity-20 md:opacity-30">
+        <div className="relative w-[110vw] max-w-[950px] aspect-square opacity-[0.07] md:opacity-[0.10]">
           <Image
             src="/images/hero-shape.jpg"
             alt=""
@@ -56,7 +56,7 @@ export function Hero() {
             className="object-contain grayscale"
           />
         </div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_10%,#000_75%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_10%,#000_70%)]" />
       </motion.div>
 
       {/* A10 — Chips flutuantes */}
@@ -80,18 +80,32 @@ export function Hero() {
         style={{ y: contentY, opacity: contentOpacity }}
         className="relative z-10 w-full max-w-7xl mx-auto px-6 flex flex-col items-center text-center"
       >
-        <EchoText
-          as="h1"
-          text="STARTIN"
-          copies={4}
-          gap={0.06}
-          className="text-[clamp(3.5rem,15vw,13.5rem)] font-heading font-extrabold leading-[0.85] tracking-[-0.04em]"
-        />
+        <div className="w-full max-w-6xl mx-auto flex justify-center">
+          <MaskedHeading
+            text="STARTIN"
+            tag="h1"
+            src="/images/white-liquid.jpg"
+            fillScale={1.3}
+            parallax={24}
+            drift={14}
+            brightness={1.45}
+            grayscale={true}
+            reveal="rise"
+            trigger="mount"
+            duration={1.2}
+            stagger={0.08}
+            align="center"
+            weight={800}
+            tracking={-0.04}
+            textScale={0.165}
+            className="font-heading uppercase select-none w-full drop-shadow-[0_0_40px_rgba(255,255,255,0.25)]"
+          />
+        </div>
 
         <div className="relative z-20 flex flex-col items-center mt-6 md:mt-10">
           <motion.p
             {...fadeUp(0.5)}
-            className="max-w-xl text-base md:text-xl text-gray-400 font-medium leading-relaxed drop-shadow-sm"
+            className="max-w-xl text-base md:text-xl text-gray-300 font-medium leading-relaxed drop-shadow-sm"
           >
             Landing pages que <span className="text-white font-semibold">vendem</span>. Social media que{" "}
             <span className="text-white font-semibold">cresce</span>. Vídeo que <span className="text-white font-semibold">marca</span>.

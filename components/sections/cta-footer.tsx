@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { EchoText } from "@/components/motion/echo-text";
+import { AnimatedShinyText } from "@/components/ui/animated-shiny-text";
 import { MagneticButton } from "@/components/motion/magnetic-button";
 import { MaskTitle } from "@/components/motion/mask-reveal";
 import { WhatsappLink } from "@/components/ui/whatsapp-link";
@@ -82,15 +82,13 @@ export function CTAFooter() {
         </div>
       </div>
 
-      {/* STARTIN gigante com eco */}
-      <div className="w-full flex justify-center pointer-events-none" aria-hidden="true">
-        <EchoText
-          text="STARTIN"
-          trigger="inView"
-          copies={5}
-          gap={0.14}
-          className="text-[clamp(3.5rem,17vw,20rem)] font-heading font-extrabold leading-[0.8] tracking-[-0.05em] text-center"
-        />
+      {/* STARTIN gigante com Animated Shiny Text */}
+      <div className="w-full flex justify-center py-6 select-none" aria-hidden="true">
+        <p className="text-[clamp(3.5rem,17vw,18rem)] font-heading font-extrabold leading-[0.8] tracking-[-0.05em] text-center">
+          <AnimatedShinyText shimmerWidth={500}>
+            STARTIN
+          </AnimatedShinyText>
+        </p>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between gap-2 text-xs text-gray-500 border-t border-white/10">
