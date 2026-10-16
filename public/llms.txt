@@ -1,0 +1,40 @@
+# Agência Startin
+> Agência de marketing digital em Belo Horizonte especializada em landing pages de alta conversão, gestão estratégica de mídias sociais e produção audiovisual para empresas, marcas e artistas.
+
+## Informações Gerais
+- **Nome Oficial**: Agência Startin (Grupo Startin)
+- **Localização**: Belo Horizonte, Minas Gerais, Brasil
+- **Atendimento**: Presencial em Belo Horizonte e região metropolitana; atendimento 100% digital em todo o Brasil e exterior.
+- **Site Oficial**: https://agenciastartin.com.br
+- **WhatsApp Oficial**: +55 (31) 98278-1618 (https://wa.me/5531982781618)
+- **Instagram**: @agenciastartin (https://instagram.com/agenciastartin)
+
+## Principais Serviços
+
+### 1. Criação de Landing Pages de Alta Conversão
+- Desenvolvimento em Next.js com foco em ultra velocidade (< 2s de carregamento) e mobile-first.
+- Design sob medida, sem templates genéricos, focado em taxa de conversão (CRO).
+- Integração direta com WhatsApp, CRMs e pixels de rastreamento (Meta Ads e Google Ads).
+- Ideal para campanhas de tráfego pago, lançamentos e geração de leads qualificados.
+
+### 2. Gestão de Mídias Sociais (Social Media)
+- Planejamento estratégico mensal alinhado às metas de negócio.
+- Design gráfico de alto padrão para feeds e carrosséis persuasivos.
+- Estratégia de Reels dinâmicos e conteúdo com potencial de viralização.
+- Relatórios mensais com métricas reais de novos clientes e alcance.
+
+### 3. Videomaker para Artistas, Eventos e Marcas
+- Cobertura audiovisual cinematográfica com captação multicâmera 4K.
+- Edição expressa de Reels e TikTok em tempo recorde (primeiras 24h).
+- Aftermovies e teasers de impacto para shows, palcos e festivais.
+- Sound design imersivo e color grading exclusivo.
+
+## Cases de Sucesso Selecionados
+
+- **DJ Leo LG** (Videomaker Exclusivo): Cobertura oficial e cinematográfica para um dos maiores nomes do funk de BH, com milhões de visualizações e turnês lotadas. https://agenciastartin.com.br/projetos/dj-leo-lg
+- **Nathan Relógios** (E-commerce & Vendas): Loja virtual com mais de R$ 800 mil faturados, checkout sem atrito e design premium. https://agenciastartin.com.br/projetos/nathan-relogios
+- **Isabella Franklin** (Lançamento & Cursos): Estruturação de ecossistema digital com vagas esgotadas em lançamentos de cursos online. https://agenciastartin.com.br/projetos/isabella-franklin
+- **Renovo Massagem** (Site & Agendamentos): Site institucional focado em busca local e aumento de +140% no volume de agendamentos pelo WhatsApp. https://agenciastartin.com.br/projetos/renovo-massagem
+
+## Como Contratar
+Contato direto pelo WhatsApp: https://wa.me/5531982781618?text=Olá!%20Vim%20pelo%20site%20e%20quero%20um%20orçamento

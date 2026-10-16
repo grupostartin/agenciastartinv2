@@ -37,8 +37,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const pageUrl = `${siteConfig.url}/projetos/${project.slug}`;
-  const title = `${project.name} — Case de ${project.type}`;
-  const description = `${project.summary} Veja como a Agência Startin desenvolveu este case para ${project.client}.`;
+  const title = `${project.name} | Case de ${project.type} — Agência Startin`;
+  const description = `${project.summary} Confira o case de sucesso desenvolvido pela Agência Startin para ${project.client} em Belo Horizonte.`;
+  const imageUrl = project.src.startsWith("http") ? project.src : `${siteConfig.url}${project.src}`;
 
   return {
     title,
@@ -50,31 +51,41 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       ...project.tags,
       "case de sucesso",
       "portfólio marketing digital BH",
+      "criação de landing page BH",
       "criação de sites BH",
       "Agência Startin",
+      "marketing digital Belo Horizonte",
     ],
     alternates: {
       canonical: pageUrl,
+      languages: {
+        "pt-BR": pageUrl,
+      },
     },
     openGraph: {
-      title: `${project.name} | Case de Sucesso Startin`,
+      title,
       description,
       url: pageUrl,
       type: "article",
+      siteName: "Agência Startin",
+      locale: "pt_BR",
       images: [
         {
-          url: project.src,
+          url: imageUrl,
           width: 1200,
           height: 630,
           alt: `${project.name} — ${project.type} | Agência Startin`,
+          type: "image/jpeg",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${project.name} | Agência Startin`,
+      title,
       description,
-      images: [project.src],
+      images: [imageUrl],
+      creator: "@agenciastartin",
+      site: "@agenciastartin",
     },
   };
 }

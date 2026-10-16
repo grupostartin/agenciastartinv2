@@ -31,24 +31,34 @@ export const metadata: Metadata = {
     template: "%s | Agência Startin",
   },
   description:
-    "Agência de marketing digital em Belo Horizonte especializada em landing pages de alta conversão, gestão de redes sociais e produção audiovisual para artistas e marcas.",
+    "Agência de marketing digital em Belo Horizonte especializada em landing pages de alta conversão, gestão estratégica de redes sociais e produção audiovisual para empresas, artistas e eventos.",
   keywords: [
     "agência de marketing BH",
+    "agência de marketing digital Belo Horizonte",
     "landing page Belo Horizonte",
     "criação de landing page BH",
-    "gestão de redes sociais BH",
-    "videomaker BH",
-    "marketing digital Belo Horizonte",
-    "criação de site BH",
+    "landing page de alta conversão",
     "desenvolvimento de sites BH",
-    "agência digital Belo Horizonte",
-    "produtora de vídeo BH",
+    "criação de sites profissionais Belo Horizonte",
+    "gestão de redes sociais BH",
+    "social media Belo Horizonte",
+    "videomaker BH",
+    "videomaker para artistas e eventos",
+    "produtora audiovisual BH",
+    "produção de vídeo para shows",
     "otimização de conversão CRO",
-    "tráfego e conversão BH",
+    "tráfego pago e conversão BH",
+    "agência digital Minas Gerais",
   ],
   authors: [{ name: "Agência Startin", url: siteConfig.url }],
   creator: "Agência Startin",
   publisher: "Agência Startin",
+  manifest: "/manifest.webmanifest",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/opengraph-image.jpg",
+  },
   formatDetection: {
     email: false,
     address: false,
@@ -57,7 +67,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Agência Startin | Marketing Digital, Landing Pages e Vídeo em BH",
     description:
-      "Landing pages que vendem. Social media que cresce. Vídeo que marca. Agência de marketing digital em BH com foco em conversão e autoridade.",
+      "Landing pages que vendem. Social media que cresce. Vídeo que marca. Agência de marketing digital em Belo Horizonte com foco em conversão e autoridade.",
     url: siteConfig.url,
     siteName: "Agência Startin",
     locale: "pt_BR",
@@ -67,7 +77,8 @@ export const metadata: Metadata = {
         url: "/opengraph-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Agência Startin — Landing Pages, Videomaker e Gestão de Mídias Sociais",
+        alt: "Agência Startin — Marketing Digital, Landing Pages e Vídeo em BH",
+        type: "image/jpeg",
       },
     ],
   },
@@ -75,7 +86,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Agência Startin | Marketing Digital em Belo Horizonte",
     description:
-      "Landing pages que vendem. Social media que cresce. Vídeo que marca. Agência de marketing digital em BH.",
+      "Landing pages que vendem. Social media que cresce. Vídeo que marca. Agência de marketing digital e produção audiovisual em BH.",
     images: ["/opengraph-image.jpg"],
     creator: "@agenciastartin",
   },
@@ -92,8 +103,20 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: siteConfig.url,
+    languages: {
+      "pt-BR": siteConfig.url,
+    },
   },
   category: "Marketing Digital & Tecnologia",
+  classification: "Marketing Digital, Desenvolvimento Web, Audiovisual",
+  other: {
+    "geo.region": "BR-MG",
+    "geo.placename": "Belo Horizonte",
+    "geo.position": "-19.9167;-43.9345",
+    "ICBM": "-19.9167, -43.9345",
+    "revisit-after": "7 days",
+    "rating": "General",
+  },
 };
 
 const structuredData = {
