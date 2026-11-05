@@ -8,6 +8,9 @@ export const siteConfig = {
   location: "Belo Horizonte, MG",
 };
 
+/** Data de última atualização das páginas de Privacidade e Termos. */
+export const legalUpdatedAt = "5 de novembro de 2026";
+
 /** RF01 — mensagem pré-preenchida por serviço. */
 export const getWhatsappLink = (service?: string) => {
   const message = service

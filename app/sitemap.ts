@@ -26,6 +26,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       images: [`${baseUrl}/opengraph-image.jpg`],
     },
     ...projectRoutes,
+    {
+      url: `${baseUrl}/privacidade`,
+      lastModified: now,
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/termos`,
+      lastModified: now,
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
+    },
   ];
 }
 

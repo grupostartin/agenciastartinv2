@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Script from "next/script";
 import { useEffect, useState } from "react";
 
@@ -52,7 +53,11 @@ export function Analytics() {
           className="fixed bottom-6 left-6 right-24 md:right-auto md:max-w-sm z-[70] rounded-3xl border border-white/15 bg-ink/95 backdrop-blur p-5 text-sm text-white"
         >
           <p className="text-gray-300">
-            Usamos cookies para medir o desempenho do site.
+            Usamos cookies para medir o desempenho do site. Saiba mais na{" "}
+            <Link href="/privacidade" className="text-white underline underline-offset-4">
+              Política de Privacidade
+            </Link>
+            .
           </p>
           <div className="mt-4 flex gap-3">
             <button

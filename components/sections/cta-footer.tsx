@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { MagneticButton } from "@/components/motion/magnetic-button";
 import { MaskTitle } from "@/components/motion/mask-reveal";
@@ -129,12 +130,12 @@ export function CTAFooter() {
               ))}
             </nav>
             <div className="flex items-center gap-5 text-zinc-500">
-              <a href="#privacidade" className="hover:text-zinc-300 transition-colors">
+              <Link href="/privacidade" className="hover:text-zinc-300 transition-colors">
                 Privacidade
-              </a>
-              <a href="#termos" className="hover:text-zinc-300 transition-colors">
+              </Link>
+              <Link href="/termos" className="hover:text-zinc-300 transition-colors">
                 Termos
-              </a>
+              </Link>
             </div>
           </div>
         </div>

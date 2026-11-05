@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
-    apple: "/opengraph-image.jpg",
+    apple: "/icons/apple-touch-icon.png",
   },
   formatDetection: {
     email: false,
